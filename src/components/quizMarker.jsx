@@ -49,13 +49,11 @@ export default function QuizMarker() {
 
     const loadQuestions = () => {
         if (!selectedCategory && !selectedDifficulty) {
-            console.log("Aucune catégorie sélectionnée. Abandon de loadQuestions.");
             return; // Sortez de la fonction si aucune catégorie n'est sélectionnée
         }
         const url = `https://opentdb.com/api.php?amount=5&category=${selectedCategory.value}&difficulty=${selectedDifficulty}&type=multiple`;
         fetch(url).then(res => res.json()).then(data => {
             setQuestions(data.results)
-            console.log(data.results)
         });
     }
 
