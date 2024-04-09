@@ -64,7 +64,7 @@ export default function QuizMarker() {
 
     return (
         <>
-            <Box sx={{...styles.container, height: '10vh', margin: 5}}>
+            <Box sx={{...styles.container, margin: 5}}>
                 <Grid container spacing={2} justifyContent="center" alignItems="center" style={{minHeight: '100vh'}}>
                     <Grid item>
                         <QuizCategories categories={quizCategories} onCategoryChange={handleCategoryChange}/>
