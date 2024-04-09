@@ -65,7 +65,7 @@ export default function QuizMarker() {
     return (
         <>
             <Box sx={{...styles.container, margin: 5}}>
-                <Grid container spacing={2} justifyContent="center" alignItems="center" style={{minHeight: '100vh'}}>
+                <Grid container spacing={2} justifyContent="center" alignItems="center">
                     <Grid item>
                         <QuizCategories categories={quizCategories} onCategoryChange={handleCategoryChange}/>
                     </Grid>
@@ -78,27 +78,29 @@ export default function QuizMarker() {
                 </Grid>
             </Box>
 
-
+            <Grid container direction="column" spacing={2} alignItems="center">
             {(selectedCategory && selectedDifficulty) ? (
-                    <Grid container spacing={3} justifyContent="center" alignItems="center" wrap="nowrap">
-                        <Grid justifyContent="center" alignItems="center">
+                    <div>
                             {questions.length > 0 && questions.map((question, index) => (
-                                <Grid key={index} item xs={12}>
-                                    <p>{question.question}</p>
-                                    <Grid container spacing={1} justifyContent="center" alignItems="center" wrap="nowrap">
-                                        {shuffleAnswers(question.correct_answer, question.incorrect_answers).map((answer, i) => (
-                                            <Button
-                                                key={i}
-                                                variant="outlined"
-                                                onClick={() => handleSelectAnswer(index, answer)}
-                                                style={{
-                                                    margin: '0 5px',
-                                                    backgroundColor: userAnswers[index] === answer ? 'lightgreen' : undefined,
-                                                }}>
-                                                {answer}
-                                            </Button>
-                                        ))}
-                                    </Grid>
+
+                                <Grid key={index} item >
+                                    <div>
+                                        <p>{question.question}</p>
+                                        <div>
+                                            {shuffleAnswers(question.correct_answer, question.incorrect_answers).map((answer, i) => (
+                                                <Button
+                                                    key={i}
+                                                    variant="outlined"
+                                                    onClick={() => handleSelectAnswer(index, answer)}
+                                                    style={{
+                                                        margin: '0 5px',
+                                                        backgroundColor: userAnswers[index] === answer ? 'lightgreen' : undefined,
+                                                    }}>
+                                                    {answer}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </Grid>
 
                             ))}
@@ -108,12 +110,13 @@ export default function QuizMarker() {
                                     Submit
                                 </Button>
                             )}
-                        </Grid>
-                    </Grid>)
+                        </div>
+                    )
                 : (<></>)
 
             }
 
+            </Grid>
         </>
 
     )
