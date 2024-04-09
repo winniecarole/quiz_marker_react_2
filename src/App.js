@@ -8,7 +8,6 @@ function App() {
   return (
     <>
         <NavBar/>
-        <QuizMarker/>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<QuizMarker/>} />
