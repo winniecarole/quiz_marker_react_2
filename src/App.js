@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+
 import NavBar from "./components/navbar";
 import QuizMarker from "./components/quizMarker";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
